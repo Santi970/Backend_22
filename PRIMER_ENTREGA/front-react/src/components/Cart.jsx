@@ -62,25 +62,46 @@ const Cart = () => {
     }
   }, []);
 
-  var newOrder = {
-    buyer: userInfo,
-    date: firebase.firestore.Timestamp.fromDate(new Date()),
-    items: cart,
-    total: total,
-  };
+  // var newOrder = {
+  //   buyer: userInfo,
+  //   date: firebase.firestore.Timestamp.fromDate(new Date()),
+  //   items: cart,
+  //   total: total,
+  // };
+
+  const sendOrder = async () => {
+    console.log('Este es el cart', cart)
+    try{
+        const url = `http://localhost:4000/api/carritos`;
+        const params = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(cart)
+        }
+        const response = await fetch(url, params);
+        const result = await response.json();
+        return result;
+    }catch(err){
+        console.log(`Error al registrar ${err}`);
+        return null;
+    }
+};
+
 
   //Creando
-  const sendOrder = () => {
-    ordersColection
-      .add(newOrder)
-      .then(({ id }) => {
-        setId(id);
-      })
-      .catch((e) => {
-        console.log(e);
-      })
-      .finally(console.log("se termino"));
-  };
+  // const sendOrder = () => {
+  //   ordersColection
+  //     .add(newOrder)
+  //     .then(({ id }) => {
+  //       setId(id);
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     })
+  //     .finally(console.log("se termino"));
+  // };
 
   // function savePrice(e) {
   //   //que retoren el precio total. ver si hace falta

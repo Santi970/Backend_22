@@ -21,7 +21,7 @@ function ItemsList() {
   const [items, setItems] = useState([]);
 
   const getData = async () => {
-    const response = await fetch("http://127.0.0.1:4000/api/productos", {
+    const response = await fetch("http://localhost:4000/api/productos", {
       method: "GET",
     });
     const data = await response.json();

@@ -26,7 +26,7 @@ const Categorias = () => {
   const [items, setItems] = useState([]);
 
   const getData = async () => {
-    const response = await fetch("http://127.0.0.1:4000/api/camperas", {
+    const response = await fetch("http://localhost:4000/api/camperas", {
       method: "GET",
     });
     const data = await response.json();
