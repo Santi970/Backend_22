@@ -17,15 +17,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/productos", routerProductos);
-app.use("/api/carrito", routerCarritos);
+app.use("/api/carritos", routerCarritos);
 app.use("/api/camperas", routerCamperas);
-
-//MIDDLEWARE de error
-app.use((error, req, res, next) => {
-  res.status(500).json({
-    error: "Error en el servidor ",
-  });
-});
 
 const PORT = 4000 || process.env.PORT;
 const server = app.listen(PORT, () => {

@@ -51,6 +51,7 @@ class Carritos {
   }
 
   async createCarts(carrito) {
+    console.log('y hasta aca?')
     if (this.exist()) {
       fs.promises.readFile(this.file).then((data) => {
         const json = JSON.parse(data.toString("utf-8"));
@@ -75,17 +76,16 @@ class Carritos {
 
 
   async deleteProductFromCart(id, id_product) {
-    return console.log(" delete Cart");
+    return console.log(" delete product from Cart");
   }
 
   async deleteCartById(id) {
-    console.log('Este es el id', id)
-    if (this.exist())  {
+    if (this.exist()) {
       try {
         const data = await fs.promises.readFile(this.file, "utf8");
-        console.log('data', data)
+        console.log('estou', data)
         const array = JSON.parse(data);
-        const newArray = array.filter((produ) => produ.id !== id);
+        const newArray = array.filter((cart) => cart.id !== id);
 
         const result = fs.promises.writeFile(
           this.file,
@@ -105,7 +105,7 @@ class Carritos {
   }
   exist() {
     return fs.existsSync(this.file);
-  }  
+  }
 }
 
 

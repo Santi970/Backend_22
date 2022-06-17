@@ -17,12 +17,14 @@ const getProductsFromCart = async (req, res, next) => {
 //CREA UN CARRITO
 const postCart = async (req, res, next) => {
   try {
+    console.log(req.body, 'e la cuestion')
+    const proudct = req.body
     const cart = await carritos.getAllCarts().then((res) => res);
 
     const carrito = {
       id: cart.length + 1,
       date: Date.now(),
-      productos: [],
+      productos: [proudct],
     };
     const result = carritos.createCarts(carrito).then((res) => res);
     if (!result) {
@@ -81,12 +83,10 @@ const deleteProductFromCart = async (req, res, next) => {
 
 //DELETE CART
 const deleteCart = async (req, res, next) => {
+  console.log('hasta aca llego')
   try {
     const id = +req.params.id;
-    const cart = await carritos.deleteCartById(id).then((res) => res);
-    if (!cart) {
-      throw new Error("Carrito no encontrado");
-    }
+    const cart = await carritos.deleteCartById(+id).then((res) => res);
     res.json(cart);
   } catch (error) {
     next(error);
