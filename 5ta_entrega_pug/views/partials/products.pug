@@ -1,0 +1,14 @@
+h2='Bienvenidos desde products.pug'
+//Name of the file : tables.pug
+table(style='width:100%', border='1')
+  tr
+    th Id
+    th Name
+    th Price
+    th Foto
+tr
+each product in productos
+  ul
+    li= product.name
+    li= product.price
+    //- li= product img(src=product.thumbnail)

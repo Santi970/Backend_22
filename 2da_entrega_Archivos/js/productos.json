@@ -1,0 +1,56 @@
+[
+	{
+		"id": 0,
+		"title": "alfajores",
+		"precio": 2000,
+		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_983745-MLA41071258804_032020-F.webp"
+	},
+	{
+		"id": 1,
+		"title": "pelotas",
+		"precio": 3000,
+		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_983745-MLA41071258804_032020-F.webp"
+	},
+	{
+		"id": 2,
+		"title": "mangueras",
+		"precio": 3000,
+		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_983745-MLA41071258804_032020-F.webp"
+	},
+	{
+		"id": 3,
+		"title": "Nuevo producto",
+		"precio": 3000,
+		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_983745-MLA41071258804_032020-F.webp"
+	},
+	{
+		"id": 4,
+		"title": "Nuevo producto si",
+		"precio": 3000,
+		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_983745-MLA41071258804_032020-F.webp"
+	},
+	{
+		"id": 5,
+		"title": "Nuevo producto si",
+		"precio": 3000,
+		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_983745-MLA41071258804_032020-F.webp"
+	},
+	{
+		"id": 6,
+		"title": "Nuevo producto si",
+		"precio": 3000,
+		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_983745-MLA41071258804_032020-F.webp"
+	},
+	{
+		"id": 7,
+		"title": "Nuevo producto si",
+		"precio": 3000,
+		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_983745-MLA41071258804_032020-F.webp"
+	},
+	{
+		"id": 8,
+		"title": "Nuevo producto si",
+		"precio": 3000,
+		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_983745-MLA41071258804_032020-F.webp"
+	}
+]

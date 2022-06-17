@@ -1,0 +1,32 @@
+<h2 style="color: rgb(46, 151, 69)" class="text-center">
+  Productos
+  <h2>
+
+    <div class="card m-2">
+      <% if (productos.length) { %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" class="text-center" >foto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% productos.forEach((producto, index) => { %>
+          <tr>
+            <th scope="row"><%= index + 1%></th>
+            <td width="30%" class="text-center" ><img class="img-fluid mm-5" width="20%" height="20%" src="<%= producto.thumbnail %>"></td>
+            <td><%= producto.name %></td>
+            <td><%= producto.price %></td>
+            <td><a href="#" class="btn btn-primary">Comprar</a></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <% } else { %> <h4 class="text-center">No se encontraron datos </h4><% } %>
+    </div>
+  </h2>
+</h2>

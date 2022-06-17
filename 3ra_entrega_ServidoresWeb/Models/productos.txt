@@ -1,0 +1,21 @@
+[
+    {
+        "title": "Reel",
+        "price": 45.000,
+        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJEXY4RzKl6MN662hFCe-_1RS6J5jp6rIfuQ&usqp=CAU",
+        "id": 1
+    },
+      {
+        "title": "Caña",
+        "price": 145.000,
+        "thumbnail": "https://www.gonzalogalan.com.ar/wp-content/uploads/2016/10/fenwick-aetos.jpg",
+        "id": 2
+    },
+      {
+        "title": "Mosca",
+        "price": 4.000,
+        "thumbnail": "https://www.lavaguada.cl/reportajes/10-moscas-para-trucha/trout03.jpg",
+        "id": 3
+    }
+
+]

@@ -1,0 +1,14 @@
+footer='FORMULARIO'
+            form(role='form' method='POST' action='/productos')
+              div.form-group
+                label(for='name') Nombre:
+                input#name.form-control(type='text', placeholder='name' name='name')
+              div.form-group
+                label(for='price') Precio:
+                input#price.form-control(type='text', placeholder='precio' name='price')
+              div.form-group
+                label(for='thumbnail') Foto:
+                input#thumbnail.form-control(type='text', placeholder='foto' name='thumbnail')
+              button.btn.btn-primary(type="submit", name="asdf") Submit
+              button.btn.btn-default(type="button", data-dismiss="modal")
+                | Close

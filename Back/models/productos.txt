@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"title": "Producto",
+		"price": "2000",
+		"thumbnail": "http://d2r9epyceweg5n.cloudfront.net/stores/001/819/518/products/86-21-21dc3840ddcbfce88616310543965509-640-0.jpg"
+	},
+	{
+		"id": 2,
+		"title": "papa",
+		"price": "200",
+		"thumbnail": "http://d2r9epyceweg5n.cloudfront.net/stores/001/819/518/products/86-21-21dc3840ddcbfce88616310543965509-640-0.jpg"
+	},
+	{
+		"id": 3,
+		"title": "pap",
+		"price": "123",
+		"thumbnail": "http://d2r9epyceweg5n.cloudfront.net/stores/001/819/518/products/86-21-21dc3840ddcbfce88616310543965509-640-0.jpg"
+	}
+]

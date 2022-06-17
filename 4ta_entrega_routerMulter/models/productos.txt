@@ -1,0 +1,8 @@
+[
+	{
+		"id": 1,
+		"title": "Producto",
+		"price": "2000",
+		"thumbnail": "http://d2r9epyceweg5n.cloudfront.net/stores/001/819/518/products/86-21-21dc3840ddcbfce88616310543965509-640-0.jpg"
+	}
+]
