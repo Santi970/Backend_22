@@ -1,3 +1,4 @@
+//mysql
 const mysqlConfig = {
   client: 'mysql',
   connection: {
@@ -9,7 +10,17 @@ const mysqlConfig = {
   }
 }
 
-const knex = require('knex')(mysqlConfig)
+//Sqlite
+const sqliteConfig = {
+  client: 'sqlite3', 
+  // connection: { filename: './mydb.sqlite'}
+  connection: { filename: './mydb-desafio.sqlite'}
+
+}
+
+// const knex = require('knex')(mysqlConfig)
+const knex = require('knex')(sqliteConfig)
+
 
 knex.schema.dropTableIfExists('articulos')
   .then(() => {

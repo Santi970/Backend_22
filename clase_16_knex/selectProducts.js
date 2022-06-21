@@ -1,4 +1,5 @@
-const { options } = require("./db/mysql")
+// const { options } = require("./db/mysql")
+const { options } = require("./db/sqlite");
 const knex = require("knex")(options)
 
 knex.from('products').select('*')
