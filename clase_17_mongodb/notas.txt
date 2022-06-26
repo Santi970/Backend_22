@@ -1,0 +1,46 @@
+MONGO notas
+*shift + enter -> salto de linea.
+*cls se limpia consola.
+
+Para comenzar:
+mongosh
+
+Mostrar tablas:
+show dbs
+
+Para crear coleccion: 
+db.users.insertOne({"name":"Santiago"})
+
+Para buscar colecciones:
+db.users.find()
+
+Crear Arreglo a lo js:
+ const users = [{ 
+... name: "Ariel",
+... },
+... {name: "Brenda", apellido: "Bernardu"}]
+Pasamos el arreglo por parametro:
+db.users.insertMany(users) -> le pasamos la variable users
+
+crear variable: 
+
+const martha =  {
+...     "name": "Martha",
+...     "estudios": "Ingeniero",
+...     "ingles": "alto",
+...     "address": {
+.....       "calle": "xxxx",
+.....       "numero": 44,
+.....       "ciudad": "buenosaires",
+.....       "pais": "ar"
+.....     },
+...     "cursos": [
+...       "Desarrollo Web",
+...       "React JS",
+...       "Programación Backend"
+...     ]
+...   }}
+
+->  db.users.insertOne(martha)
+
+
