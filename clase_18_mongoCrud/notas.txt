@@ -1,0 +1,37 @@
+
+OPERADORES:
+
+MENORES A 34: 
+db.clientes.find({edad: { $lte: 34 } })
+
+es IGUAL: 
+db.clientes.find({name: { $eq: 'Carlos' } }) 
+
+Agregando dos articlos: 
+db.articulos.insertMany([{name: 'Galletas', precio: 12, stock:100, inStore: true}, {name: 'Papas', precio: 13, stock:500, inStore: false}]) 
+
+Que devuelva documetos que tienen o no los campos inStore: (flase, true)
+db.articulos.find({inStore: {$exists: false}})
+
+Que devuelva los nombres carlos y jaime: 
+db.clientes.find({name: {$in: ['Jaime', 'Carlos']}})
+
+Que devuleva ni jaime ni carlos: 
+db.clientes.find({name: {$nin: ['Jaime', 'Carlos']}})
+
+Obtenemos los cursos que sean igual al tamaño 3:
+db.clientes.find({cursos: {$size: 3}})
+
+Dame los que tomaron estos cursos:
+db.clientes.find({ cursos: { $all: ['Desarrollo Web', 'React JS', 'Programación Backend' ]}})
+
+elemMatch funciona igual a filter 
+Ejempo: 
+db.clientes.find({cursos: { $elemMatch: { $eq:'React JS' } } })
+
+para buscar con punto tipo objeto:
+db.clientes.find({'direccion.ciudad': 'Buenos Aires'})
+
+expreciones regulares:
+Buscar todos los nombres qeu comienzan con A:
+db.clientes.find({name: /^A/})
