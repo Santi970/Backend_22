@@ -1,0 +1,62 @@
+mongosh
+
+show dbs
+
+use ecommerce
+
+const mensajes = [
+  { id: 0, mensaje: "Este es mi primer mensaje" },
+  { id: 1, mensaje: "Este es mi segundo mensaje" },
+  { id: 2, mensaje: "Este es mi tercer mensaje" },
+  { id: 3, mensaje: "Este es mi cuarto mensaje" },
+  { id: 4, mensaje: "Este es mi quinto mensaje" },
+  { id: 5, mensaje: "Este es mi sexto mensaje" },
+  { id: 6, mensaje: "Este es mi septimo mensaje" },
+  { id: 7, mensaje: "Este es mi octavo mensaje" },
+  { id: 8, mensaje: "Este es mi noveno mensaje" },
+  { id: 9, mensaje: "Este es mi decimo mensaje" },
+]
+
+db.mensajes.insertMany(mensajes) -> insertamos mensajes
+
+const productos = [
+  				{id: 0, title: "Pantalon 1",price: 120,img: "https://http2.mlstatic.com/D_NQ_NP_770674-MLA49029549687_022022-W.jpg",cantidad: 2},
+  				{id: 1,title: "Pantalon 2",price: 540,img: "https://http2.mlstatic.com/D_NQ_NP_770674-MLA49029549687_022022-W.jpg",cantidad: 5},
+  				{id: 2,title: "Pantalon 3",price: 800,img: "https://http2.mlstatic.com/D_NQ_NP_770674-MLA49029549687_022022-W.jpg",cantidad: 10},
+  				{id: 3,title: "Pantalon 4",price: 1200,img: "https://http2.mlstatic.com/D_NQ_NP_770674-MLA49029549687_022022-W.jpg",cantidad: 11},
+  				{id: 4,title: "Pantalon 5",price: 2000,img: "https://http2.mlstatic.com/D_NQ_NP_770674-MLA49029549687_022022-W.jpg",cantidad: 20},
+  				{id: 5,title: "Pantalon 6",price: 2600,img: "https://http2.mlstatic.com/D_NQ_NP_770674-MLA49029549687_022022-W.jpg",cantidad: 33},
+  				{id: 6,title: "Pantalon 7",price: 3200,img: "https://http2.mlstatic.com/D_NQ_NP_770674-MLA49029549687_022022-W.jpg",cantidad: 34},
+  				{id: 7,title: "Pantalon 8",price: 3900,img: "https://http2.mlstatic.com/D_NQ_NP_770674-MLA49029549687_022022-W.jpg",cantidad: 39},
+  				{id: 8,title: "Pantalon 9",price: 4000,img: "https://http2.mlstatic.com/D_NQ_NP_770674-MLA49029549687_022022-W.jpg",cantidad: 45},
+  				{id: 9,title: "Pantalon 10",price: 5000,img: "https://http2.mlstatic.com/D_NQ_NP_770674-MLA49029549687_022022-W.jpg",cantidad: 67} 
+]
+
+db.productos.insertMany(productos)  -> insertamos productos
+
+
+db.productos.find() -> listar documentos de productos
+
+db.mensajes.find() -> listar documentos de mensajes
+
+db.stats() -> detalles de las bases de datos 
+
+db.mensajes.count(); -> total de registros de docuemtos en mensajes
+
+db.productos.count(); -> Total de registros de documentos en productos
+
+db.mensajes.countDocuments();
+db.productos.countDocuments();
+
+5) 
+//Realizar una consulta por nombre de producto especifico.
+db.productos.find({title: { $eq: 'Pantalon 1' } }) 
+
+query = {'$and': [{'pricea': {'$lt': precio_usuario}},{'priceb': {'$gt': precio_usuario}}]}
+
+//Listrar productos entre 1000 a 3000 pesos.
+db.productos.find({ price: {$in:  [1000, 3000]}})
+
+db.productos.find({price: {$elemMatch: {$gt: 1000}, {$lt: 3000}}})
+
+
