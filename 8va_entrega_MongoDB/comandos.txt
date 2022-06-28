@@ -59,3 +59,13 @@ db.productos.find({price: { $lt: 1000 } })
 query = {'$and': [{'price': {'$lt': 3000}},{'price': {'$gt': 1000}}]}
 db.productos.find(query)
 
+//Listar todos los productos con precio Mayor a 3000 pesos.
+db.productos.find({price: { $gt: 3000 } }) 
+
+//Solo el nombre del tercer producto mas barato
+query = {'$and': [{{id: {$eq: 3}},{'price': {'$gt': 1000}}]}
+db.productos.find(query)
+
+
+
+
