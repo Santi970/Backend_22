@@ -52,11 +52,9 @@ db.productos.countDocuments();
 //Realizar una consulta por nombre de producto especifico.
 db.productos.find({title: { $eq: 'Pantalon 1' } }) 
 
-query = {'$and': [{'pricea': {'$lt': precio_usuario}},{'priceb': {'$gt': precio_usuario}}]}
-
 //Listrar productos entre 1000 a 3000 pesos.
-db.productos.find({ price: {$in:  [1000, 3000]}})
+query = {'$and': [{'price': {'$lt': 3000}},{'price': {'$gt': 1000}}]}
 
-db.productos.find({price: {$elemMatch: {$gt: 1000}, {$lt: 3000}}})
+db.productos.find(query)
 
 
