@@ -2,6 +2,8 @@ MONGO notas
 *shift + enter -> salto de linea.
 *cls se limpia consola.
 
+Web para ver el _id destructurado https://steveridout.com/mongo-object-time/
+
 Para comenzar:
 mongosh
 
@@ -42,5 +44,4 @@ const martha =  {
 ...   }}
 
 ->  db.users.insertOne(martha)
-
 

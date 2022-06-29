@@ -2,7 +2,7 @@ const express = require("express");
 
 const productsRouter = require("./routers/productsRouter");
 
-const app = express();
+const app = express(); 
 
 app.use(express.json());
 app.use(express.urlencoded({ extend: true }));

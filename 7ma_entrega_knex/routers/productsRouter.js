@@ -19,4 +19,7 @@ productsRouter.get("", productsController.listProducts);
 
 productsRouter.post("", isAdminMiddleware, productsController.createProduct);  //asi deberia ser el endpoint http://localhost:8080/api/products?admin=true
 
+productsRouter.delete("/id", productsController.deleteProductsForId);
+
+
 module.exports = productsRouter;

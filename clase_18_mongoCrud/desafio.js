@@ -34,3 +34,4 @@ const articulos = [
 db.articulos.insertMany(articulos)
 
 db.articulos.countDocuments()
+

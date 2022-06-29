@@ -35,3 +35,53 @@ db.clientes.find({'direccion.ciudad': 'Buenos Aires'})
 expreciones regulares:
 Buscar todos los nombres qeu comienzan con A:
 db.clientes.find({name: /^A/})
+
+para que devuelva solo un campo:
+ db.clientes.find({name: /^A/}, {name: true})
+
+para que devuelva solo un campo y evite el _id:
+db.clientes.find({name: /^A/}, {name: true, _id: false})
+
+Para ordenar :
+db.clientes.find().sort({name:  1}) acendentemente
+db.clientes.find().sort({edad:  -1}) decentente
+
+limit: (pensarlo como paginacion):
+*Devuelve de dos  en dos:
+db.clientes.find().sort({edad:  -1, name: -1}).limit(2)
+*skip hace que salte de dos en dos: 
+db.clientes.find().sort({edad:  -1, name: -1}).limit(2).skip(2)
+
+
+UPDATE:
+*Para todos los usuarios que viven en buenos aires quiero crear el cp.
+db.clientes.update({'direccion.ciudad': 'Buenos Aires'}, { $set: {'direccion.cp': 12345}})
+
+si no encuentra el update puedo insertar el nuevo registro con la info que queremos:
+db.clientes.update({'direccion.ciudad': 'Buenos Aires'}, { $set: {'direccion.cp': 12345}}, {upsert: true})
+
+
+AGREGANDO:
+*De todos los usuarios que tomaron el curso de desarrollo web, agregamos el elemento HTML
+db.clientes.update({cursos: { $elemMatch: { $eq: 'Desarrollo Web'}}}, { $push: {cursos: 'HTML'} })
+
+Actualizame todos los elementos:
+db.clientes.updateMany({cursos: { $elemMatch: { $eq: 'Desarrollo Web'}}}, { $push: {cursos: 'HTML'} })
+
+db.clientes.find({cursos: {$elemMatch: { $eq: 'Desarrollo Web'}}})
+
+DELETE:
+*Borrar todos los clientes que comienzan con la letra A:
+ db.clientes.deleteMany({name: /^A/})
+
+
+Para crear un usuario admin:
+*navegar a use admin y dentro este comadno:
+de lectura:
+db.createUser({user: 'lector', pwd: '123456', roles: [{role: 'read', db: 'empresa'}]})
+de escritura:
+db.createUser({user: 'escritor', pwd: '123456', roles: [{role: 'readWrite', db: 'empresa'}]})
+
+
+
+
