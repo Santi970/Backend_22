@@ -1,0 +1,74 @@
+[
+	{
+		"id": 1,
+		"title": "Campera  1",
+		"price": "20019",
+		"thumbnail": "https://desiderata.vteximg.com.br/arquivos/ids/227088-610-764/ZP720915_HM_2.jpg?v=637894429232900000",
+		"available_quantity": 3,
+		"category": "pantalones",
+		"condition": "new"
+	},
+	{
+		"id": 2,
+		"title": "Campera  2",
+		"price": "20019",
+		"thumbnail": "https://tommyargentina.vteximg.com.br/arquivos/ids/189113-500-667/DM0DM08460_XNL_1.jpg?v=637768167518400000",
+		"available_quantity": 3,
+		"category": "pantalones",
+		"condition": "new"
+	},
+	{
+		"id": 3,
+		"title": "Campera  3",
+		"price": "20019",
+		"thumbnail": "https://www.kvnstatic.com/productos/05389030/05389030.jpg",
+		"available_quantity": 3,
+		"category": "pantalones",
+		"condition": "new"
+	},
+	{
+		"id": 4,
+		"title": "Campera  4",
+		"price": "20019",
+		"thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCzVKagHoFxhqgXzE8okk96ARw2bHYc9ibkLZ_8clPxmi5Xgcr6c2wO6sQJ9x_Q6CoHVI&usqp=CAU",
+		"available_quantity": 3,
+		"category": "pantalones",
+		"condition": "new"
+	},
+	{
+		"id": 5,
+		"title": "Campera  5",
+		"price": "20019",
+		"thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHTPZcdlLV7gj86UUsI7Sw4QgpbmLW6xuKQXlMTn5OjRrr74m8doIzzRipVm-a7KPDUS0&usqp=CAU",
+		"available_quantity": 3,
+		"category": "pantalones",
+		"condition": "new"
+	},
+	{
+		"id": 6,
+		"title": "Campera  6",
+		"price": "20019",
+		"thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0U_ED_n1QMof1T_J90DhaqI7FRgBD0guoq-BvzOoO-60x0l8vVY0jtPqqiTJCb5wbmmw&usqp=CAU",
+		"available_quantity": 3,
+		"category": "pantalones",
+		"condition": "new"
+	},
+	{
+		"id": 7,
+		"title": "Campera  7",
+		"price": "20019",
+		"thumbnail": "https://www.vandalia.com.ar/media/catalog/product/cache/1/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/8/8/8804-bordo_3_.jpg",
+		"available_quantity": 3,
+		"category": "pantalones",
+		"condition": "new"
+	},
+	{
+		"id": 8,
+		"title": "Campera  8",
+		"price": "20019",
+		"thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_tNG5zFHx0Q3eWhciEj5DOQTRzqsz76Ku3g&usqp=CAU",
+		"available_quantity": 3,
+		"category": "pantalones",
+		"condition": "new"
+	}
+]
