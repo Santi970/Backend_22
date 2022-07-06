@@ -14,5 +14,13 @@
     "available_quantity": 3,
     "category": "pantalones",
     "condition": "new"
+  },
+  {
+    "title": "Gorringui",
+    "price": "20019",
+    "thumbnail": "https://i.pinimg.com/originals/06/67/74/066774ef21a3ac63153d0ccf06c9730f.jpg",
+    "available_quantity": 3,
+    "category": "pantalones",
+    "condition": "new"
   }
 ]
