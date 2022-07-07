@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-class ContenedorMemoria {
+class ContenedorArchivo {
   constructor(name) {
     this.name = name;
   }
@@ -54,4 +54,4 @@ class ContenedorMemoria {
   }
 }
 
-module.exports = ContenedorMemoria;
+module.exports = ContenedorArchivo;

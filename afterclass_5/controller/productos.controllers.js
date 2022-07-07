@@ -2,12 +2,16 @@ const { options } = require("../db/mysql");
 
 const ContenedorArchivo = require("../contenedores/ContenedorArchivo");
 const ContenedorMySQL = require("../contenedores/ContenedorMySQL");
-const contenedorArchivoProductos = new ContenedorArchivo("./products.json");
-const contenedorMySQLProductos = new ContenedorMySQL(options, "products");
+const ProductosDaoArchivos = require("../contenedores/ProductosDaoArchivos");
+const ProductosDAOArchivo = require("../daos/productos/ProductosDaoArchivo");
+
+const productosDAO = new ProductosDAOArchivo()
+// const contenedorArchivoProductos = new ContenedorArchivo("./products.json");
+// const contenedorMySQLProductos = new ContenedorMySQL(options, "products");
 
 //GET
 const getProducts = async (req, res, next) => {
-  return contenedorMySQLProductos.findAll()
+  return productosDAO.findAll()
   .then((products) => {
     console.log(products);
 
@@ -22,7 +26,7 @@ const getProductForId = async (req, res, next) => {};
 const saveProduct = async (req, res, next) => {
   const data = req.body;
 
-  return contenedorMySQLProductos.create(data).then((newProduct) => {
+  return productosDAO.create(data).then((newProduct) => {
     console.log(newProduct);
     return res.status(201).json(newProduct);
   });
