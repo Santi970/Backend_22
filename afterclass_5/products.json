@@ -22,5 +22,12 @@
     "available_quantity": 3,
     "category": "pantalones",
     "condition": "new"
+  },
+  {
+    "name": "HOY ",
+    "price": 20,
+    "description": "Mas dulce que un chupetin",
+    "stock": 20,
+    "category_id": 1
   }
 ]

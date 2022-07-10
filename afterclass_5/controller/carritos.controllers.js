@@ -1,18 +1,26 @@
+const storage = require('../daos')
+const carritosStorage = storage().carritos
+
+
 //modelJS
 // const Carritos = require("../models/model_carritos");
 // const Productos = require("../models/model_productos");
 // instancia modelTXT
-const ContenedorArchivo = require("../contenedores/ContenedorArchivo");
 
-const contenedorArchivoProductos = new ContenedorArchivo("./carritos.json");
+// const ContenedorArchivo = require("../contenedores/ContenedorArchivo");
+// const contenedorArchivoProductos = new ContenedorArchivo("./carritos.json");
+
 // let productos = new Productos("./models/productos.txt");
 
-const productos = [""];
+// const CarritosDAOArchivo = require("../daos/carritos/CarritosDaoArchivo");
+// const carritosDAO = new CarritosDAOArchivo
+
+const carritos = [""];
 /* - - - - - - - - - CARRITO - - - - - - - - - */
 
 //Busca un producto en el carrito o el carrito
 const getCarts = async (req, res, next) => {
-  return contenedorArchivoProductos.findAll().then((carts) => {
+  return carritosStorage.findAll().then((carts) => {
     console.log(carts);
     return res.json(carts);
   });
@@ -22,7 +30,7 @@ const getCarts = async (req, res, next) => {
 const postCart = async (req, res, next) => {
   const data = req.body;
 
-  return contenedorArchivoProductos.create(data).then((newCart) => {
+  return carritosStorage.create(data).then((newCart) => {
     console.log(newCart);
     return res.status(201).json(newCart);
   });

@@ -1,18 +1,19 @@
 const { options } = require("../db/mysql");
+// const storage = require('../daos')
+// const productsStorage = storage().products
 
-const ContenedorArchivo = require("../contenedores/ContenedorArchivo");
-const ContenedorMySQL = require("../contenedores/ContenedorMySQL");
-const ProductosDaoArchivos = require("../contenedores/ProductosDaoArchivos");
+// const ContenedorArchivo = require("../contenedores/ContenedorArchivo");
+// const ContenedorMySQL = require("../contenedores/ContenedorMySQL");
+
 const ProductosDAOArchivo = require("../daos/productos/ProductosDaoArchivo");
+const productosDAO = new ProductosDAOArchivo();
 
-const productosDAO = new ProductosDAOArchivo()
 // const contenedorArchivoProductos = new ContenedorArchivo("./products.json");
 // const contenedorMySQLProductos = new ContenedorMySQL(options, "products");
 
 //GET
 const getProducts = async (req, res, next) => {
-  return productosDAO.findAll()
-  .then((products) => {
+  return productosDAO.findAll().then((products) => {
     console.log(products);
 
     return res.json(products);
