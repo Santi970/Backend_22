@@ -29,5 +29,12 @@
     "description": "Mas dulce que un chupetin",
     "stock": 20,
     "category_id": 1
+  },
+  {
+    "name": "dom 10 ",
+    "price": 20,
+    "description": "Mas dulce que un chupetin",
+    "stock": 20,
+    "category_id": 1
   }
 ]

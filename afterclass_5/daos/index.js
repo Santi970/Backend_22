@@ -62,4 +62,5 @@ const getStorage = () => {
   }
 };
 
-module.exports = getStorage;
+
+module.exports = getStorage

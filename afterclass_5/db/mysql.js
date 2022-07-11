@@ -1,14 +1,11 @@
-const options = {
+module.exports = {
     client: 'mysql',
     connection: {
-      host : '192.168.0.252',
+      host : process.env.DB_HOST,
       port : 3306,
-      user : 'root',
-      password : '',
-      database : 'clase16'
-    }
-  };
-
-  module.exports = {
-    options 
+      user : process.env.DB_USER,
+      password : process.env.DB_PASSWORD,
+      database : 'clase16',
+    },
+    pool: {min: 0 , max: 10},
   }

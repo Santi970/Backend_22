@@ -1,7 +1,7 @@
 const { options } = require("../db/mysql");
 
-const storage = require('../daos') //hacemos referencia al index de daos. 
-const productsStorage = storage().products //accedemos al objeto products. dentro del switch de index de daos. 
+const getStorage = require('../daos') //hacemos referencia al index de daos. 
+const productsStorage = getStorage().products //accedemos al objeto products. dentro del switch de index de daos. 
 
 // const ContenedorArchivo = require("../contenedores/ContenedorArchivo");
 // const ContenedorMySQL = require("../contenedores/ContenedorMySQL");
