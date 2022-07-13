@@ -4,7 +4,7 @@ class ContenedorMemoria {
   }
 
   findAll() {
-    return Promise.resolve(this.data)
+    return this.data
   }
 
   find(id) {
@@ -20,7 +20,7 @@ class ContenedorMemoria {
   create(data) {
     this.data.push(data)
 
-    return Promise.resolve(data)
+    return data
   }
 
   update(id, data) {
@@ -30,7 +30,7 @@ class ContenedorMemoria {
       throw new Error('Error al actualizar: elemento no encontrado')
     }
 
-    this.data[index] = Object.assign(this.data[index], data)
+    this.data[index] = Object.assign(this.data[index], data) //Object.assign toma un objeto de base y por encima pone el objeto que le pasemos. 
 
     return this.data[index]
   }
@@ -42,10 +42,10 @@ class ContenedorMemoria {
       throw new Error('Error al borrar: elemento no encontrado')
     }
 
-    this.data.splice(index, 1)
-
+    this.data.splice(index, 1)//splice a partir del indice que se le indica,  comienza a borrar elementos y como segundo param le indicamos el numero de elementos queu queremos que borre
+                              // basicamente borra el elemento especifico. 
     return true
   }
 }
 
-module.exports = ContenedorMemoria
+export default ContenedorMemoria

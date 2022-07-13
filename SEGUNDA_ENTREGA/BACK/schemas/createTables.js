@@ -3,18 +3,21 @@ const { options } = require("../db/mysql");
 const knex = require("knex")(options);
 
 knex.schema
-  .createTable("categories", (table) => {
+  .createTable("carrito", (table) => {
     table.increments("id");
-    table.string("name", 30);
+    table.timestamps();
+    table.object("productos");
   })
   .then(() => {
     console.log("Tabla de categorias creada.");
     return knex.schema.createTable("products", (table) => {
       table.increments("id");
-      table.string("name", 30);
+      table.string("title", 30);
       table.float("price");
-      table.string("description", 255);
-      table.integer("stock");
+      table.string("thumbnail", 355);
+      table.integer("available_quantity");
+      table.string("category", 30)
+      table.string("condition", 30)
       table.integer("category_id").unsigned().references("categories.id");
     });
   })
