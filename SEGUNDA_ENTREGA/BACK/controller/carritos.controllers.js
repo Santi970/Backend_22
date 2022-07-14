@@ -1,7 +1,6 @@
 const storage = require('../daos')
 const carritosStorage = storage().carritos
 
-
 //modelJS
 // const Carritos = require("../models/model_carritos");
 // const Productos = require("../models/model_productos");
