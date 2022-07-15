@@ -88,9 +88,9 @@ const Cart = () => {
         return null;
     }
 };
+ 
 
-
-  //Creando
+  //Creando FIREBASE
   // const sendOrder = () => {
   //   ordersColection
   //     .add(newOrder)

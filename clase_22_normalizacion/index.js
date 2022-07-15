@@ -11,11 +11,11 @@ const postSchema = new normalizr.schema.Entity('posts', {
   comments: [ commentSchema ]
 })
 
-const normalizedBlogpost = normalizr.normalize(blogpost, postSchema)
+const normalizedBlogpost = normalizr.normalize(blogpost, postSchema) //aca se normaliza. Le pasamos la data original y el esquema al que lo queremos convertir. 
 
 const denormalizedBlogpost = normalizr.denormalize(normalizedBlogpost.result, postSchema, normalizedBlogpost.entities)
 fs.promises
-  .writeFile('./blogpostNormalized.json', JSON.stringify(normalizedBlogpost, null, 2))
+  .writeFile('./blogpostNormalized.json', JSON.stringify(normalizedBlogpost, null, 2)) //se le tiene que mandar un json string
   .then(_ => console.log('ok'))
 
 fs.promises

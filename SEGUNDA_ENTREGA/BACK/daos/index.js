@@ -20,6 +20,7 @@ const CarritosDAOAMemoria = require("../daos/carritos/CarritosDaoMemoria");
 // Retornamos un objeto de products y carritos.
 const getStorage = () => {
   const storage = process.env.STORAGE || "archivo"; 
+  console.log('storage = ', storage)
   
 
   switch (storage) {
