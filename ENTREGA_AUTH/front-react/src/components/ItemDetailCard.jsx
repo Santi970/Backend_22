@@ -64,7 +64,7 @@ const ItemDetailCard = (props) => {
   useEffect(() => {
     setLoading(true)
     const getData = async () => {
-      const response = await fetch(`http://localhost:4000/api/productos/${id}`, {
+      const response = await fetch(`http://127.0.0.1:4000/api/productos/${id}`, {
         method: "GET",
       });
       const data = await response.json();
