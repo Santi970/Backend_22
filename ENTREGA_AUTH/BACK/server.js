@@ -35,6 +35,8 @@ app.use(passport.session()); //para indicarle que vamos a usar sesiones.
 
 const routerProductos = require("./routers/productos.routes");
 const routerCarritos = require("./routers/carritos.routes");
+const routerUsuarios = require("./routers/usuarios.routes");
+
 
 console.log(process.env.STORAGE); //le digo que mis entidades se conecte al tipo de persistencia de archivo.   STORAGE=archivo nodemon server.js
 
@@ -44,6 +46,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/productos", routerProductos);
 app.use("/api/carritos", routerCarritos);
+app.use("/api/login", routerUsuarios);
 
 //invocamos al metodo use desde passport. Este recibe 2 parametros, nombre de la estrategia que queremos hacer y la definicion de la estrategia.
 passport.use(
