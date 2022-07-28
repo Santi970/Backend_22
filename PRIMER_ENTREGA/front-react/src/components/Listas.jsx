@@ -94,6 +94,20 @@ const Listas = () => {
           </ListItem>
         </NavLink>
 
+
+        <NavLink
+          to="/Login"
+          activeClassName="active"
+          className={classes.link}
+        >
+          <ListItem button>
+            <ListItemIcon>
+              <AddCircleOutlineIcon />
+            </ListItemIcon>
+            <ListItemText primary="Login" />
+          </ListItem>
+        </NavLink>
+
         <Divider />
       </List>
     </div>

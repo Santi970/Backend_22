@@ -24,16 +24,6 @@ class Producto {
         } else{return {error: "Invalid object"}}
     }
 
-    // update(productoId, body){
-    //     let producto = this.productos.find(element => element.id === parseInt(productoId));
-    //     if (producto){
-    //         this.productos[productoId-1] = {...body, id: parseInt(productoId)};
-    //         return this.productos[productoId-1];
-    //     } else {
-    //         return {error: "Producto a actualizar no encontrado."};
-    //     } 
-    // }
-
     async borrar(productoId){
         try {
             const response = productoDAO.borrar(productoId);

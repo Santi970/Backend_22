@@ -81,7 +81,6 @@ passport.deserializeUser((id, done) => {
   User.findById(id, (err, user) => {
     done(err, user)
   })
-
 })
 // req.flash lo podemos usar porque usamos el middleware de flash...
 app.get('/login', (req, res) => {

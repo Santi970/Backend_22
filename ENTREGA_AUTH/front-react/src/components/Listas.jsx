@@ -10,6 +10,7 @@ import {
   ListItemIcon,
   ListItemText,
   Divider,
+  Typography,
 } from "@material-ui/core";
 
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
@@ -107,11 +108,7 @@ const Listas = () => {
           </ListItem>
         </NavLink>
 
-        <NavLink
-          to="/Login"
-          activeClassName="active"
-          className={classes.link}
-        >
+        <NavLink to="/Login" activeClassName="active" className={classes.link}>
           <ListItem button>
             <ListItemIcon>
               <AddCircleOutlineIcon />
@@ -120,6 +117,18 @@ const Listas = () => {
           </ListItem>
         </NavLink>
 
+        <NavLink
+          to="/SaveProductsForm"
+          activeClassName="active"
+          className={classes.link}
+        >
+          <ListItem button>
+            <ListItemIcon>
+              <AddCircleOutlineIcon />
+            </ListItemIcon>
+            <ListItemText primary="Create Products" />
+          </ListItem>
+        </NavLink>
 
         <Divider />
       </List>

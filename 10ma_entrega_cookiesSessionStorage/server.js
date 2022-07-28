@@ -28,7 +28,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(session({
     store: MongoStore.create({
         //En Atlas connect App :  Make sure to change the node version to 2.2.12:
-        mongoUrl: 'mongodb+srv://root:root@cluster0.vchky.mongodb.net/sessions?retryWrites=true&w=majority',
+        mongoUrl: 'mongodb+srv://santicendra:Nuevacontra1987@cluster0.lavna26.mongodb.net/sessions?retryWrites=true&w=majority',
         mongoOptions: advancedOptions
     }),
     secret: 'secret',
@@ -99,29 +99,12 @@ io.on('connection', async socket => {
     console.log('Un cliente se ha conectado');
     let contenido = await mensajes.leerMensajes();
 
-    //let flag = (producto.productos.length !== 0);
-  
-    // socket.emit('content', {
-    //     hayProductos: flag,
-    //     productos: producto.productos
-    // })
-
     socket.emit('messages', contenido)
-
-    // socket.on('contentSent', ()=> {
-    //     console.log("Detecto cambios!");
-    //     let flag = producto.productos.length !== 0
-    //     io.sockets.emit('content', {
-    //         hayProductos: flag,
-    //         productos: producto.productos
-    //     })
-    // })
 
     // si el cliente envia un nuevo mensaje, lo guardo y emito. Debe ser async. porque sino trae promise pending.
     socket.on('new-message', async function (data) {
         console.log("Guardar en server");
         await mensajes.guardarMensajes(data);
-        //mensaje.guardarMensajes(data);
         io.sockets.emit('messages', await mensajes.leerMensajes());
     });
 });

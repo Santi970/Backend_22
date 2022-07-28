@@ -60,12 +60,6 @@ class MensajesDAO{
                 const normalizedData = normalize(mensajes, schemaMensajes);
                 const normalizedDataString = JSON.stringify(normalizedData, null, '\t')
                 const originalDataString = JSON.stringify(mensajes, null, '\t')
-
-                //const compresion = (normalizedDataString.length / originalDataString.length * 100);
-                //console.log(compresion);
-
-                //fs.writeFileSync('./objetoNormalizado.json', JSON.stringify(normalizedData)
-                //fs.writeFileSync('./objetoDESNormalizado.json', JSON.stringify(normalizedData)
                 return normalizedData;
             }
     }

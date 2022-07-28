@@ -14,7 +14,7 @@ import{ Hidden} from '@material-ui/core';
 import Box from './../components/Box';
 import{ makeStyles} from '@material-ui/core';
 import NavBar from './../components/NavBar'
-
+import SaveProductsForm from './../components/SaveProductsForm'
 import firebase from "../Pages/firebase/Produtcs";
 
 
@@ -72,6 +72,7 @@ const Routes = ({ handlerSearch, search }) => {
         <Route path="/products/">
           <Products  search={search}/>
         </Route>
+ 
         <Route path="/carrito" component={Carrito}/>
         <Route path="/preguntas" component={Preguntas}/>
         <Route path="/MisDatos" component={MisDatos}/>
@@ -79,6 +80,7 @@ const Routes = ({ handlerSearch, search }) => {
         <Route path="/firebase" component={firebase}/>
         <Route path="/Register" component={Register}/>
         <Route path="/Login" component={LoginPage}/>
+        <Route path="/SaveProductsForm" component={SaveProductsForm}/>
         <Route path="/itemDetailCard/:id"  >
           <ItemDetailCard/>
         </Route>
