@@ -6,4 +6,4 @@ const connection = mongoose.connect(URL, {
   useNewUrlParser: true
 })
 
-module.exports = connection
+module.exports = connection 

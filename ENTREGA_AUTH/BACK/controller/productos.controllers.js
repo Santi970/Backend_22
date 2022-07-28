@@ -1,7 +1,7 @@
 const { options } = require("../db/mysql");
 
-const getStorage = require('../daos') //hacemdos referencia al index de daos. 
-const productsStorage = getStorage().products //accedemos al objeto products. dentro del switch de index de daos. 
+const getStorage = require("../daos"); //hacemdos referencia al index de daos.
+const productsStorage = getStorage().products; //accedemos al objeto products. dentro del switch de index de daos.
 
 // const ContenedorArchivo = require("../contenedores/ContenedorArchivo");
 // const ContenedorMySQL = require("../contenedores/ContenedorMySQL");
@@ -40,9 +40,9 @@ const getProductForId = async (req, res, next) => {
 //POST PRODUCT
 const saveProduct = async (req, res, next) => {
   const data = req.body;
+  console.log('LLEGO', data)
 
   return productsStorage.create(data).then((newProduct) => {
-    console.log(newProduct);
     return res.status(201).json(newProduct);
   });
 };
