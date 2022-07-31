@@ -8,11 +8,14 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
-import Swal from "sweetalert2";
-
+import { useAuthDispatch } from "../../src/hooks/auth/useAuth";
+import { setTokenApi } from "../../src/api/auth/token";
+import { authenticated } from "../../src/store/action";
 
 const Login = () => {
   const [alerta, setAlert] = useState(false)
+  const dispatch = useAuthDispatch();
+
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -25,16 +28,18 @@ const Login = () => {
           email,
           password,
         });
-        console.log("Result del register: ", result);
+        console.log("Result del login: ", result);
         if(result.error){
           console.log('Error en el login')
-          alert(`Usuario no encontrado!`);
+          alert(`Error: `);
 
         }else{
           alert(`Login exitoso!`);
+          setTokenApi(JSON.stringify(result));
+          dispatch(authenticated(result));
         }
       } catch (error) {
-        console.log("ERROR en el registro de usuario", error);
+        console.log("ERROR en el login de usuario", error);
       }
     },
   });

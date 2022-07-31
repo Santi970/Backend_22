@@ -5,8 +5,13 @@ import { useFormik } from "formik";
 import { Button, TextField, Typography } from "@material-ui/core";
 //Api
 import { registerUser } from "../../src/api/auth/register";
+import { useHistory } from "react-router-dom"
+
 
 const Register = () => {
+  let history = useHistory()
+
+
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
@@ -19,6 +24,16 @@ const Register = () => {
           password,
         });
         console.log("Result del register: ", result);
+        if(result.error){
+          console.log('Error en el login')
+          alert(`Error: ${result.error} `);
+
+        }else{
+          alert(`Usuario registrado exitosamente!`);
+          history.push("/")
+
+      
+        }
       } catch (error) {
         console.log("ERROR en el registro de usuario", error);
       }
