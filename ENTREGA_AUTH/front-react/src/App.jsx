@@ -13,7 +13,7 @@ import { getTokenApi } from "../src/api/auth/token";
 
 const App = () => {
   const [search, setSearch] = useState(null); //
-  const [auth, setAuth] = useState(null); //
+  const [auth, setAuth] = useState(false); //
   const dispatch = useAuthDispatch();
 
   //Manejador "handlerSearch" que recibe el parametro de navBar de lo que busca la persona
@@ -22,17 +22,17 @@ const App = () => {
   useEffect(() => {
     const user = getTokenApi();
 
-  console.log('a verr', user)
     if (user) {
-      console.log("ESTE ES EL USER", user);
+      console.log("Esta authenticado", user);
       dispatch(authenticated(user));
+      setAuth(true);
     } else {
-      console.log("ESTE ES EL USER", user);
+      console.log("No esta authenticado", user);
       dispatch(authenticated(null));
     }
   }, [dispatch]);
 
-  console.log('a verr')
+  console.log("a verr");
 
   return (
     <AuthContext>
@@ -41,7 +41,6 @@ const App = () => {
           <div className="App">
             <section className="App-section-a">
               <ThemeProvider theme={theme}>
-                {auth}
                 <Routes search={search} handlerSearch={handlerSearch} />{" "}
                 {/*pasamos por props a los hijos*/}
               </ThemeProvider>

@@ -16,9 +16,9 @@ const SaveProductsForm = () => {
       const title = formData.title;
       const price = formData.price;
       const thumbnail = formData.thumbnail;
-      const available_quantity = formData.thumbnail;
-      const category = formData.thumbnail;
-      const condition = formData.thumbnail;
+      const available_quantity = formData.available_quantity;
+      const category = formData.category;
+      const condition = formData.condition;
 
       try {
         const result = await createProducts({

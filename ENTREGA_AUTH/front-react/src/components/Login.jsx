@@ -11,10 +11,12 @@ import {
 import { useAuthDispatch } from "../../src/hooks/auth/useAuth";
 import { setTokenApi } from "../../src/api/auth/token";
 import { authenticated } from "../../src/store/action";
+import { useHistory } from "react-router-dom"
 
 const Login = () => {
   const [alerta, setAlert] = useState(false)
   const dispatch = useAuthDispatch();
+  let history = useHistory()
 
 
   const formik = useFormik({
@@ -37,6 +39,7 @@ const Login = () => {
           alert(`Login exitoso!`);
           setTokenApi(JSON.stringify(result));
           dispatch(authenticated(result));
+          history.push("/")
         }
       } catch (error) {
         console.log("ERROR en el login de usuario", error);
