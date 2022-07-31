@@ -1,6 +1,7 @@
 import React from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import {loginApi} from '../api/auth/login'
 //Mui
 import {
   Button,
@@ -17,18 +18,17 @@ const Login = () => {
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
-      const name = formData.name;
+      const email = formData.email;
       const password = formData.password;
-      console.log('Esta es la data', formData)
-      // try {
-      //   const result = await registerApi({
-      //     name,
-      //     password,
-      //   });
-      //   console.log("Result del register: ", result);
-      // } catch (error) {
-      //   console.log("ERROR en el registro de usuario", error);
-      // }
+      try {
+        const result = await loginApi({
+          email,
+          password,
+        });
+        console.log("Result del register: ", result);
+      } catch (error) {
+        console.log("ERROR en el registro de usuario", error);
+      }
     },
   });
 

@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import SaveProductsForm  from "../../components/SaveProductsForm";
 
 const SaveProducts = () => {
   return (
-    <div>SaveProducts</div>
-  )
-}
+    <div >
+      <SaveProductsForm />
+    </div>
+  );
+};
 
-export default SaveProducts
+export default SaveProducts;
+
