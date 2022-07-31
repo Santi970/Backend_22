@@ -11,3 +11,7 @@ routerUsuarios
   .delete("/:id", controllersUsuairos.deleteUser);
 
 module.exports = routerUsuarios;
+
+
+//import Swal from "sweetalert2";
+//      alert(`Ups! Tenemos solo ${cantidad} de estos productos en stock`);

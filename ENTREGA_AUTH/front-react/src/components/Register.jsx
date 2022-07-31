@@ -4,24 +4,24 @@ import { useFormik } from "formik";
 //Mui
 import { Button, TextField, Typography } from "@material-ui/core";
 //Api
+import { registerUser } from "../../src/api/auth/register";
 
 const Register = () => {
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
-      const name = formData.name;
+      const email = formData.email;
       const password = formData.password;
-      console.log("Esta es la data", formData);
-      // try {
-      //   const result = await registerApi({
-      //     name,
-      //     password,
-      //   });
-      //   console.log("Result del register: ", result);
-      // } catch (error) {
-      //   console.log("ERROR en el registro de usuario", error);
-      // }
+      try {
+        const result = await registerUser({
+          email,
+          password,
+        });
+        console.log("Result del register: ", result);
+      } catch (error) {
+        console.log("ERROR en el registro de usuario", error);
+      }
     },
   });
 

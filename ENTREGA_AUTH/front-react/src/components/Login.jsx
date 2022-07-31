@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState}from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import {loginApi} from '../api/auth/login'
@@ -6,13 +6,13 @@ import {loginApi} from '../api/auth/login'
 import {
   Button,
   TextField,
-  Typography
+  Typography,
 } from "@material-ui/core";
-//Api
+import Swal from "sweetalert2";
 
 
 const Login = () => {
-
+  const [alerta, setAlert] = useState(false)
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -26,6 +26,13 @@ const Login = () => {
           password,
         });
         console.log("Result del register: ", result);
+        if(result.error){
+          console.log('Error en el login')
+          alert(`Usuario no encontrado!`);
+
+        }else{
+          alert(`Login exitoso!`);
+        }
       } catch (error) {
         console.log("ERROR en el registro de usuario", error);
       }
@@ -69,6 +76,7 @@ const Login = () => {
           >
             Submit
           </Button>
+
         </form>
       </div>
   );

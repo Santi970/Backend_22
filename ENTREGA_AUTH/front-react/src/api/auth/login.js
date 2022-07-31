@@ -1,6 +1,6 @@
 export const loginApi = async ({ email, password }) => {
   try {
-    const url = `http://127.0.0.1:4000/api/login`;
+    const url = `http://127.0.0.1:4000/login`;
     const params = {
       method: "POST",
       headers: {

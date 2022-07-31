@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 const dotenv = require("dotenv");
 const session = require("express-session");
-
+const jwt = require('jsonwebtoken')
 const passport = require("passport"); //middleware
 dotenv.config();
 
@@ -13,7 +13,7 @@ dotenv.config();
 const { Strategy: LocalStrategy } = require("passport-local"); //LocalStrategy es un middleware de express
 
 const mongoose = require("mongoose");
-const User = require("./models/user");
+const User = require("./schemas/user");
 
 const { createHash, isValidPassword } = require("./utils");
 
@@ -37,7 +37,6 @@ const routerProductos = require("./routers/productos.routes");
 const routerCarritos = require("./routers/carritos.routes");
 const routerUsuarios = require("./routers/usuarios.routes");
 
-
 console.log(process.env.STORAGE); //le digo que mis entidades se conecte al tipo de persistencia de archivo.   STORAGE=archivo nodemon server.js
 
 app.use(express.static("./public"));
@@ -48,110 +47,106 @@ app.use("/api/productos", routerProductos);
 app.use("/api/carritos", routerCarritos);
 app.use("/api/login", routerUsuarios);
 
-//invocamos al metodo use desde passport. Este recibe 2 parametros, nombre de la estrategia que queremos hacer y la definicion de la estrategia.
-passport.use(
-  "login",
-  new LocalStrategy((username, password, done) => {
-    return User.findOne({ username }) //que traiga el usuario que viene del parametro.
-      .then((user) => {
-        if (!user) {
-          return done(null, false, { message: "Nombre de usuario incorrecto" });
-        }
+//--------AUTH--------
 
-        if (!isValidPassword(user.password, password)) {
-          return done(null, false, { message: "Contraseña incorrecta" });
-        }
+const PRIVATE_KEY = "PRIVATEKEYJWT";
 
-        return done(null, user); //le enviamos el user que hizo la query
-      })
-      .catch((err) => done(err));
-  })
-);
+const users = [];
 
-//passReqToCallback: pasa el request al callback
-passport.use(
-  "signup",
-  new LocalStrategy(
-    {
-      passReqToCallback: true,
-    },
-    (req, username, password, done) => {
-      return User.findOne({ username })
-        .then((user) => {
-          if (user) {
-            return done(null, false, {
-              message: "El nombre de usuario ya existe",
-            }); //done es el callback del parametro
-          }
+const generateToken = (user) => {
+  const token = jwt.sign(
+    { id: user.id, email: user.email },
+    PRIVATE_KEY,
+    { expiresIn: "24h" }
+  );
+  return token;
+};
 
-          const newUser = new User(); //invocamos el modelo y creamos uno nuevo pasandole las mismas propiedades
-          newUser.username = username;
-          newUser.password = createHash(password); //createHash: encriptamos la contraseña
-          newUser.email = req.body.email;
+const generateLastId = () => {
+  return users.length + 1;
+};
 
-          return newUser.save();
-        })
-        .then((user) => done(null, user))
-        .catch((err) => done(err));
+const jwtMiddleware = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader) {
+    return res.status(401).json({
+      error: "Necesitas enviar un token",
+    });
+  }
+
+  const token = authHeader.split(" ")[1];
+
+  jwt.verify(token, PRIVATE_KEY, (err, payload) => {
+    console.log({ err });
+    if (err) {
+      return res.status(401).json({
+        error: "Necesitas enviar un token válido",
+      });
     }
-  )
-);
 
-//recibe todo el usuario y la funcion done.
-//serializamos el id del usuario y lo guardamos.
-passport.serializeUser((user, done) => {
-  console.log("serializeUser");
-  done(null, user._id);
-});
+    console.log({ payload });
 
-passport.deserializeUser((id, done) => {
-  console.log("deserializeUser");
-  User.findById(id, (err, user) => {
-    done(err, user);
+    const user = users.find((user) => user.id === payload.id);
+
+    delete user.password;
+
+    if (!user) {
+      return res.status(401).json({
+        error: "El usuario no existe",
+      });
+    }
+
+    req.user = user;
+    return next();
+  });
+};
+
+app.post("/signup", (req, res) => {
+  const {  email, password } = req.body;
+
+  const userExists = users.some((user) => user.email === email);
+
+  if (userExists) {
+    return res.json({ error: "El nombre de usuario ya existe" });
+  }
+
+  const id = generateLastId();
+
+  const user = { id, email, password };
+
+  users.push(user);
+
+  const access_token = generateToken(user);
+
+  return res.json({
+    user,
+    access_token,
   });
 });
 
-// req.flash lo podemos usar porque usamos el middleware de flash...
-app.get("/login", (req, res) => {
-  return res.render("login", { message: req.flash("error") });
-});
+app.post("/login", (req, res) => {
+  const { email, password } = req.body;
 
-//usamos el middleware (controlador) para autenticar.
-app.post(
-  "/login",
-  passport.authenticate("login", {
-    successRedirect: "/",
-    failureRedirect: "/login",
-    failureFlash: true,
-  })
-);
-app.get("/signup", (req, res) => {
-  return res.render("signup", { message: req.flash("error") });
-});
+  const user = users.find(
+    (user) => user.email === email && user.password === password
+  );
 
-app.post(
-  "/signup",
-  passport.authenticate("signup", {
-    successRedirect: "/",
-    failureRedirect: "/signup",
-    failureFlash: true,
-  })
-);
-
-//isAuthenticated : ES UNA FUNCION que nos brinda passport...
-app.get(
-  "/",
-  (req, res, next) => {
-    if (req.isAuthenticated()) {
-      return next();
-    }
-
-    return res.redirect("/login"); //en caso de error redirige a login
-  },
-  (req, res) => {
-    return res.json(req.user);
+  if (!user) {
+    return res.status(401).json({ error: "Credenciales incorectas" });
   }
-);
+
+  const access_token = generateToken(user);
+
+  return res.json({
+    user,
+    access_token,
+  });
+});
+
+app.get("/profile", jwtMiddleware, (req, res) => {
+  return res.json(req.user);
+});
 
 const PORT = 4000 || process.env.PORT;
 const server = app.listen(PORT, () => {
