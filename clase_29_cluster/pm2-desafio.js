@@ -32,8 +32,13 @@ app.listen(PORT, () => {
   );
 });
 
+//-> DESAFIO
 //correr y renombrar el pm2-desafio.js con --name..
 //pm2 start pm2-desafio.js --name="desafio-parte-1" -- 8080  
+
+//pm2 start pm2-desafio.js --name="desafio-parte-2" -i max -- 8082
+
+/*----------------*/
 
 //NOTAS: 
 
@@ -65,3 +70,8 @@ app.listen(PORT, () => {
 
 //PASAR ARGUMENTOS A NUESTRO SCRIPT: 
 // pm2 restart forever.js --watch -- 8081  -> parametros despues del doble guion. 
+
+//ELIMINAR POR ID LOS PROCESOS: 
+// primero: ps aux
+// segudno:  pm2 list
+// pm2 delete (id)
