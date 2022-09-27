@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 const dotenv = require("dotenv");
 const session = require("express-session");
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 const passport = require("passport"); //middleware
 dotenv.config();
 
@@ -55,7 +55,7 @@ const users = [];
 
 const generateToken = (user) => {
   const token = jwt.sign(
-    { id: user.id, email: user.email },
+    { id: user.id, username: user.username },
     PRIVATE_KEY,
     { expiresIn: "24h" }
   );
@@ -103,7 +103,7 @@ const jwtMiddleware = (req, res, next) => {
 };
 
 app.post("/signup", (req, res) => {
-  const {  email, password } = req.body;
+  const { email, password } = req.body;
 
   const userExists = users.some((user) => user.email === email);
 
@@ -113,7 +113,7 @@ app.post("/signup", (req, res) => {
 
   const id = generateLastId();
 
-  const user = { id, email, password };
+  const user = { id, email, email, password };
 
   users.push(user);
 

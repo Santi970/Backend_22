@@ -13,5 +13,3 @@ routerUsuarios
 module.exports = routerUsuarios;
 
 
-//import Swal from "sweetalert2";
-//      alert(`Ups! Tenemos solo ${cantidad} de estos productos en stock`);

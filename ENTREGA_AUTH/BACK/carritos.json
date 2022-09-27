@@ -1,24 +1,25 @@
 [
-    {
+  {
     "id": 4,
     "date": 1655445748919,
     "productos": [
-        [
-            {
-                "id": 1,
-                "title": "Pantalon 1",
-                "price": "20019",
-                "img": "https://http2.mlstatic.com/D_NQ_NP_770674-MLA49029549687_022022-W.jpg",
-                "cantidad": 2
-            },
-            {
-                "id": 4,
-                "title": "Pantalon 4",
-                "price": "20019",
-                "img": "https://media.revistagq.com/photos/5e736faf5bcabb0008f4db04/master/w_1600%2Cc_limit/jeans%2520zara.jpg",
-                "cantidad": 3
-            }
-        ]
+      [
+        {
+          "id": 1,
+          "title": "Pantalon 1",
+          "price": "20019",
+          "img": "https://http2.mlstatic.com/D_NQ_NP_770674-MLA49029549687_022022-W.jpg",
+          "cantidad": 2
+        },
+        {
+          "id": 4,
+          "title": "Pantalon 4",
+          "price": "20019",
+          "img": "https://media.revistagq.com/photos/5e736faf5bcabb0008f4db04/master/w_1600%2Cc_limit/jeans%2520zara.jpg",
+          "cantidad": 3
+        }
+      ]
     ]
-}
+  },
+  [{ "cantidad": 1 }]
 ]

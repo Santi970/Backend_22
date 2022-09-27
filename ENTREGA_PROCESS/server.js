@@ -65,8 +65,8 @@ app.use(express.static(__dirname + "/public"));
 
 app.use(session({
   store: MongoStore.create({
-    //En Atlas connect App :  Make sure to change the node version to 2.2.12:
-    mongoUrl: 'mongodb+srv://root:root@cluster0.vchky.mongodb.net/sessions?retryWrites=true&w=majority',
+    //En Atlas connect App :  Make sure to change the node version
+    mongoUrl: 'mongodb+srv://santicendra:Nuevacontra1987@cluster0.lavna26.mongodb.net/?retryWrites=true&w=majority',
     mongoOptions: advancedOptions
   }),
   secret: 'secret',

@@ -2,15 +2,13 @@ import React from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 //Mui
-import { Button, TextField, Typography } from "@material-ui/core";
+import { Button, TextField, Typography, Card } from "@material-ui/core";
 //Api
 import { registerUser } from "../../src/api/auth/register";
-import { useHistory } from "react-router-dom"
-
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
-  let history = useHistory()
-
+  let history = useHistory();
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -24,62 +22,73 @@ const Register = () => {
           password,
         });
         console.log("Result del register: ", result);
-        if(result.error){
-          console.log('Error en el login')
+        if (result.error) {
+          console.log("Error en el login");
           alert(`Error: ${result.error} `);
-
-        }else{
+        } else {
           alert(`Usuario registrado exitosamente!`);
-          history.push("/")
-
-      
+          history.push("/");
         }
       } catch (error) {
         console.log("ERROR en el registro de usuario", error);
       }
     },
   });
+  const goRegister = () => {
+    history.push("/login");
+  };
 
   return (
-    <div>
-      <Typography>REGISTER</Typography>
+    <Card style={{ padding: 20 }}>
+      <div>
+        <Typography>REGISTER</Typography>
 
-      <form onSubmit={formik.handleSubmit}>
-        <TextField
-          fullWidth
-          variant="standard"
-          id="email"
-          name="email"
-          label="Email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
-          style={{ margin: "20px" }}
-        />
-        <TextField
-          fullWidth
-          id="password"
-          name="password"
-          label="Password"
-          type="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
-          style={{ margin: "20px" }}
-        />
-        <Button
-          color="primary"
-          variant="contained"
-          fullWidth
-          type="submit"
-          style={{ margin: "20px" }}
-        >
-          Submit
-        </Button>
-      </form>
-    </div>
+        <form onSubmit={formik.handleSubmit}>
+          <TextField
+            fullWidth
+            variant="standard"
+            id="email"
+            name="email"
+            label="Email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
+            style={{ margin: "20px", maxWidth: "50%" }}
+          />
+          <TextField
+            fullWidth
+            id="password"
+            name="password"
+            label="Password"
+            type="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            error={formik.touched.password && Boolean(formik.errors.password)}
+            helperText={formik.touched.password && formik.errors.password}
+            style={{ margin: "20px", maxWidth: "50%" }}
+          />
+          <Button
+            color="primary"
+            variant="contained"
+            fullWidth
+            type="submit"
+            style={{ margin: "20px", maxWidth: "50%" }}
+          >
+            Submit
+          </Button>
+          <Button
+            color="#secondary"
+            variant="outline"
+            fullWidth
+            style={{ margin: "10px", maxWidth: "50%" }}
+            onClick={() => goRegister()}
+          >
+            Go to login here
+          </Button>
+        </form>
+      </div>
+    </Card>
   );
 };
 

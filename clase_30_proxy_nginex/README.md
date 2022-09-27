@@ -71,15 +71,16 @@ cat /var/www/html/index.nginx-debian.html
 Comando para cambiar el root:
 sudo vim /etc/nginx/sites-available/default
 
-
 min 1:30
 
 Para correr:
 ej1: pm2 start index.js --name="node app 1" -- 8081
 ej2: mp2 start index.js --name="node app 2" --8082
 
+ej3: pm2 start products.js --name="products api" -- 8083
+
 // --- REPASON
-Creamos carpeta publica: 
+Creamos carpeta publica:  
 a - mkdir public
 Creamos index:
 b - vim index.html
@@ -87,3 +88,9 @@ Restart:
 c - sudo systemctl restart nginx
 
 d- curl localhost
+
+PARA RENOMBRAR ARCHIVOS:
+mv index.js user.js
+
+PARA HACER UNA COPIA:
+cp users.js products.js

@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import "./assets/css/App.css";
 import { ThemeProvider } from "@material-ui/styles";
 import theme from "./temaConfig";
 import Routes from "./Routes/Routes";
-import { useState } from "react"; //Solo sirve para primitivos y objetos simples
 import { AuthContext } from "../src/store/Context";
 import { useAuthDispatch } from "../src/hooks/auth/useAuth";
 import { authenticated } from "../src/store/action";
@@ -13,7 +12,7 @@ import { getTokenApi } from "../src/api/auth/token";
 
 const App = () => {
   const [search, setSearch] = useState(null); //
-  const [auth, setAuth] = useState(false); //
+  const [auth, setAuth] = useState(null); //
   const dispatch = useAuthDispatch();
 
   //Manejador "handlerSearch" que recibe el parametro de navBar de lo que busca la persona
@@ -22,17 +21,17 @@ const App = () => {
   useEffect(() => {
     const user = getTokenApi();
 
+  console.log('a verr', user)
     if (user) {
-      console.log("Esta authenticado", user);
+      console.log("ESTE ES EL USER", user);
       dispatch(authenticated(user));
-      setAuth(true);
     } else {
-      console.log("No esta authenticado", user);
+      console.log("ESTE ES EL USER", user);
       dispatch(authenticated(null));
     }
   }, [dispatch]);
 
-  console.log("a verr");
+  console.log('a verr')
 
   return (
     <AuthContext>

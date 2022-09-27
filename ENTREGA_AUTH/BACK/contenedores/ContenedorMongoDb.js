@@ -19,6 +19,7 @@ class ContenedorMongoDb {
   find(id) {}
 
   create(data) {
+    console.log('CONTENEDOR MONGO  --- CREATE')
     return db
       .then((_) => this.data.save())
       .then((document) => console.log("User saved", document))

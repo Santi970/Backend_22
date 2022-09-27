@@ -32,6 +32,6 @@ export const FormProvider = ({children}) => {
         </FormContext.Provider>
         
     </div>
-)
-}
+)}
+
 export default FormProvider

@@ -60,7 +60,7 @@ const ItemDetailCard = (props) => {
   //Props para la url
   let id = useParams().id;
 
-    
+   
   useEffect(() => {
     setLoading(true)
     const getData = async () => {
@@ -73,7 +73,7 @@ const ItemDetailCard = (props) => {
     getData();
   }, []);
 
-
+  console.log('ITEMS',items)
   //Aca de guarda al carrito Context.
   function addToCart(cantidad) {
     setCantidad(props.cantidad);
